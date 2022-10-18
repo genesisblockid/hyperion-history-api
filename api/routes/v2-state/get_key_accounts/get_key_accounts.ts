@@ -1,6 +1,6 @@
 import {FastifyInstance, FastifyReply, FastifyRequest} from "fastify";
 import {timedQuery} from "../../../helpers/functions";
-import {Numeric} from "exaniumjs/dist";
+import {Numeric} from "vexaniumjs/dist";
 import {getSkipLimit} from "../../v2-history/get_actions/functions";
 
 function invalidKey() {
