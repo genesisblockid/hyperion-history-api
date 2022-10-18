@@ -1,7 +1,7 @@
 import {FastifyInstance, FastifyReply, FastifyRequest} from "fastify";
 import {timedQuery} from "../../../helpers/functions";
 import {createHash} from "crypto";
-import {base58ToBinary, binaryToBase58} from "eosjs/dist/eosjs-numeric";
+import {base58ToBinary, binaryToBase58} from "vexaniumjs/dist/vexjs-numeric";
 import {Search} from "@elastic/elasticsearch/api/requestParams";
 
 function convertToLegacyKey(block_signing_key: string) {
@@ -15,7 +15,7 @@ function convertToLegacyKey(block_signing_key: string) {
 				.digest()
 				.slice(0, 4)
 		]);
-		return "EOS" + binaryToBase58(merged);
+		return "VEX" + binaryToBase58(merged);
 	} else {
 		return block_signing_key;
 	}

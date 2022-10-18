@@ -46,16 +46,16 @@ export class ConfigurationModule {
 			this.config.indexer.fetch_block = false;
 		}
 
-		this.EOSIO_ALIAS = 'eosio';
+		this.EOSIO_ALIAS = 'vexcore';
 		if (this.config.settings.eosio_alias) {
 			this.EOSIO_ALIAS = this.config.settings.eosio_alias;
 		} else {
-			this.config.settings.eosio_alias = 'eosio';
+			this.config.settings.eosio_alias = 'vexcore';
 		}
 
 		// append default blacklists (eosio::onblock & eosio.null)
 		// this.filters.action_blacklist.add(`${this.config.settings.chain}::${this.EOSIO_ALIAS}::onblock`);
-		this.filters.action_blacklist.add(`${this.config.settings.chain}::${this.EOSIO_ALIAS}.null::*`);
+		this.filters.action_blacklist.add(`${this.config.settings.chain}::vex.null::*`);
 
 		// this.filters.delta_blacklist.add(`${this.config.settings.chain}::${this.EOSIO_ALIAS}::global`);
 		// this.filters.delta_blacklist.add(`${this.config.settings.chain}::${this.EOSIO_ALIAS}::global2`);

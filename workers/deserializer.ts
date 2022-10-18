@@ -1,5 +1,5 @@
 import {HyperionWorker} from "./hyperionWorker";
-import {Api} from "eosjs/dist";
+import {Api} from "vexaniumjs/dist";
 import {ApiResponse} from "@elastic/elasticsearch";
 import {cargo, queue} from 'async';
 import * as AbiEOS from "@eosrio/node-abieos";
@@ -523,7 +523,7 @@ export default class MainDSWorker extends HyperionWorker {
             first_action = trace['action_traces'][0][1];
 
             // replace first action if the root is eosio.null::nonce
-            if (first_action.act.account === this.conf.settings.eosio_alias + '.null' && first_action.act.name === 'nonce') {
+            if (first_action.act.account === 'vex.null' && first_action.act.name === 'nonce') {
                 if (trace['action_traces'][1] && trace['action_traces'][1].length === 2) {
                     first_action = trace['action_traces'][1][1];
                 }
@@ -1240,7 +1240,7 @@ export default class MainDSWorker extends HyperionWorker {
                     hLog(`Failed to process ABI from ${account['name']} at ${block_num}: ${e.message}`);
                 }
             } else {
-                if (account.name === 'eosio') {
+                if (account.name === 'vexcore') {
                     hLog(`---------- ${block_num} ----------------`);
                     hLog(account);
                 }
@@ -1639,7 +1639,7 @@ export default class MainDSWorker extends HyperionWorker {
             // hLog(delta);
         };
 
-        this.tableHandlers[EOSIO_ALIAS + '.msig:proposal'] = async (delta) => {
+        this.tableHandlers['vex.msig:proposal'] = async (delta) => {
             // decode packed_transaction
             delta['@proposal'] = {
                 proposal_name: delta['data']['proposal_name']
@@ -1653,7 +1653,7 @@ export default class MainDSWorker extends HyperionWorker {
             delete delta['data'];
         };
 
-        this.tableHandlers[EOSIO_ALIAS + '.msig:approvals'] = (delta) => {
+        this.tableHandlers['vex.msig:approvals'] = (delta) => {
             delta['@approvals'] = {
                 proposal_name: delta['data']['proposal_name'],
                 requested_approvals: delta['data']['requested_approvals'],
@@ -1665,7 +1665,7 @@ export default class MainDSWorker extends HyperionWorker {
             }
         };
 
-        this.tableHandlers[EOSIO_ALIAS + '.msig:approvals2'] = (delta) => {
+        this.tableHandlers['vex.msig:approvals2'] = (delta) => {
             delta['@approvals'] = {
                 proposal_name: delta['data']['proposal_name'],
                 requested_approvals: delta['data']['requested_approvals'].map((item) => {

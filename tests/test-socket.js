@@ -1,8 +1,8 @@
 // noinspection JSUnusedGlobalSymbols,JSUnusedGlobalSymbols,JSUnusedGlobalSymbols,JSCheckFunctionSignatures,JSCheckFunctionSignatures,JSUnresolvedVariable,JSUnresolvedVariable
 
-const {Serialize} = require('eosjs');
+const {Serialize} = require('vexaniumjs');
 const WebSocket = require('ws');
-const {SerialBuffer, SerializerState, getTypesFromAbi, createInitialTypes} = require('eosjs/dist/eosjs-serialize');
+const {SerialBuffer, SerializerState, getTypesFromAbi, createInitialTypes} = require('vexaniumjs/dist/vexjs-serialize');
 const txEnc = new TextEncoder();
 const txDec = new TextDecoder();
 

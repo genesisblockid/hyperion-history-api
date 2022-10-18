@@ -1,5 +1,5 @@
 import {FastifyInstance, FastifyPluginOptions} from "fastify";
-import {Api} from "eosjs/dist";
+import {Api} from "vexaniumjs/dist";
 import fp from "fastify-plugin";
 
 export default fp(async (fastify: FastifyInstance, options: FastifyPluginOptions): Promise<void> => {
@@ -12,7 +12,7 @@ export default fp(async (fastify: FastifyInstance, options: FastifyPluginOptions
 		textDecoder: new TextDecoder(),
 		textEncoder: new TextEncoder(),
 	});
-	fastify.decorate('eosjs', {api, rpc});
+	fastify.decorate('vexaniumjs', {api, rpc});
 }, {
 	fastify: '>=2.0.0',
 	name: 'fastify-eosjs'

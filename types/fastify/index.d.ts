@@ -1,6 +1,6 @@
 import {Client} from "@elastic/elasticsearch";
 import {ConnectionManager} from "../../connections/manager.class";
-import {Api, JsonRpc} from "eosjs";
+import {Api, JsonRpc} from "vexaniumjs";
 import {CacheManager} from "../../api/helpers/cacheManager";
 import {FastifyRedis} from "fastify-redis";
 

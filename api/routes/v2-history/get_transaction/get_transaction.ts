@@ -1,6 +1,6 @@
 import {FastifyInstance, FastifyReply, FastifyRequest} from "fastify";
 import {mergeActionMeta, timedQuery} from "../../../helpers/functions";
-import {GetInfoResult} from "eosjs/dist/eosjs-rpc-interfaces";
+import {GetInfoResult} from "vexaniumjs/dist/vexjs-rpc-interfaces";
 
 async function getTransaction(fastify: FastifyInstance, request: FastifyRequest) {
 	const redis = fastify.redis;

@@ -4,7 +4,7 @@ import {cp, mkdir, readdir, readFile, rm, writeFile} from "fs/promises";
 import {HyperionConfig} from "../interfaces/hyperionConfig";
 import {HyperionConnections} from "../interfaces/hyperionConnections";
 import {existsSync} from "fs";
-import {JsonRpc} from "eosjs";
+import {JsonRpc} from "vexaniumjs";
 import fetch from "cross-fetch";
 import WebSocket from 'ws';
 

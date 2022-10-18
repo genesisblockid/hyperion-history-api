@@ -1,6 +1,6 @@
 import {ConfigurationModule} from "./config";
 import {ConnectionManager} from "../connections/manager.class";
-import {JsonRpc} from "eosjs/dist";
+import {JsonRpc} from "vexaniumjs/dist";
 import {ApiResponse, Client} from "@elastic/elasticsearch";
 import {HyperionModuleLoader} from "./loader";
 
@@ -15,7 +15,7 @@ import {
     messageAllWorkers
 } from "../helpers/common_functions";
 
-import {GetInfoResult} from "eosjs/dist/eosjs-rpc-interfaces";
+import {GetInfoResult} from "vexaniumjs/dist/vexjs-rpc-interfaces";
 import pm2io from '@pm2/io';
 
 import {
@@ -36,7 +36,7 @@ import {HyperionWorkerDef} from "../interfaces/hyperionWorkerDef";
 import {HyperionConfig} from "../interfaces/hyperionConfig";
 
 import {queue, QueueObject} from "async";
-import {convertLegacyPublicKey} from "eosjs/dist/eosjs-numeric";
+import {convertLegacyPublicKey} from "vexaniumjs/dist/vexjs-numeric";
 import AlertsManager from "./alertsManager";
 import IORedis from "ioredis";
 import {IOConfig} from "@pm2/io/build/main/pmx";
@@ -1996,7 +1996,7 @@ export class HyperionMaster {
                 block_num: acc.head_block_num,
                 symbol: arr[1],
                 amount: parseFloat(arr[0]),
-                code: this.conf.settings.eosio_alias + '.token',
+                code: 'vex.token',
                 scope: accountName,
                 present: 2
             };
